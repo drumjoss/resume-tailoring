@@ -243,7 +243,7 @@ Micro and Nanoelectronics
 
 ## Agile SCRUM
 **2016 – 2017**
-Agile SCRUM coaching sessions and application.
+Agile SCRUM coaching sessions and concrete application.
 
 ## Embedded C++
 **2017**
