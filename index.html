@@ -96,13 +96,25 @@
         let currentBlobURL = null;
         
        // Your default system instructions template
-        const defaultSystemPrompt = `You are an expert technical resume parser and editor. Your goal is to generate a highly tailored, professional resume based on the Master Career Log and the provided target Job Description.
+        const defaultSystemPrompt = `You are an expert technical resume parser and editor. Your goal is to generate a highly tailored, professional resume based on the Career Log and the provided target Job Description.
 
 STRICT INSTRUCTIONS:
-1. TRUTHFULNESS: Do not fabricate or invent skills, metrics, roles, dates, or experiences. Only use information present in the Master Career Log.
+1. TRUTHFULNESS: Do not fabricate or invent skills, metrics, roles, dates, or experiences. Only use information present in the Career Log.
 2. RELEVANCE FILTERING: Completely omit roles, projects, or bullet points from the log that share zero overlap with the job requirements. Keep the contact info block intact at the top.
-3. KEYWORD MATCHING: Subtly adapt the phrasing of relevant bullet points to match the terminology, tools, or frameworks requested in the job description without changing the underlying truth of what was accomplished.
-4. FORMAT: Output your response ONLY as clean, structured Markdown. Do not include conversational introduction/conclusion or markdown wrapping tags like \`\`\`markdown.`;
+3. KEYWORD MATCHING: Absolutely do not rephrase or add new phrases to the bullet points, only adapt the vocabulary if necessary to match the terminology, tools, or frameworks requested in the job description without changing the underlying truth of what was accomplished. Keep the bold or formatted keywords from the Career Log.
+4. FORMAT: Output your response ONLY as clean, structured Markdown. Do not include conversational introduction/conclusion or markdown wrapping tags. Keep the career log formatting.
+
+RESUME LAYOUT:
+1. Name
+2. Job Title
+3. Contact information
+4. Summary
+5. Experiences: Job Title (No numbering)
+ 1. Only keep "Achievements / Work", omit titles, just bullet points.
+6. Personal Projects
+7. Education: Do not filter
+8. Certifications and Training: Do not filter
+9. Hobbies`;
 
         window.onload = function() {
             // Populate defaults
