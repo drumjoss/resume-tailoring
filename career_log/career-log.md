@@ -2,7 +2,7 @@
 **2024 – Present**
 
 ## Context
-Freelance activity focused on embedded systems development and system architecture for industrial and connected devices. My interventions cover both firmware development, high-level  and hardware/software system design.
+Freelance activity focused on embedded systems development and system architecture for industrial and connected devices. My interventions cover both firmware development, high-level and hardware/software system design.
 
 ## Responsibilities
 - Design and implementation of embedded software solutions in C/C++.
@@ -12,8 +12,8 @@ Freelance activity focused on embedded systems development and system architectu
 ## Achievements / Work
 
 ### Embedded Development
-- Ported an embedded software application for a handheld radio-based indoor localisation system adding new features, for instance firmware update and robustified lone worker safety mechanism. Initial target was an AT32 (AVR32), and the new one a SAM4S (ARM Cortex-M4), causing endianess issues.
-- Refactored a full project to streamline product line maintenance and update costs, including porting to a CMake compatible toolchain.
+- Ported a **C** embedded software application for a handheld radio-based indoor localisation system adding new features, for instance firmware update and robustified lone worker safety mechanism. Initial target was an AT32 (AVR32), and the new one a SAM4S (ARM Cortex-M4), causing endianess issues.
+- Refactored a full project to streamline product line maintenance and update costs, including porting to a **CMake** compatible toolchain and **FreeRTOS**.
 - Designed and implemented a portable lone worker alert mechanism based on accelerometer and gyroscope data.
   [tags: c, embedded-software, indoor-localization, firmware-update, cmake, sensors, imu]
 
@@ -22,9 +22,9 @@ Freelance activity focused on embedded systems development and system architectu
   [tags: system-architecture, embedded-system, real-time, safety-critical]
 
 ### Validation, Testing and Industrialization
-- Created integration tests to simulate back-end operations in node.js, with the emulated back-end running on a Raspberry Pi 3/Zero W.
+- Created integration tests to simulate back-end operations in **node.js**, with the emulated back-end running on a **Raspberry Pi 3**/**Zero W**.
 - Ubuntu 24 and Windows 11 VM Creation and management to configure and use the product.
-- Created a hardware test device to simulate alert cases, driven by node.js tests sequencing and running on a Arduino UNO R4 WiFi.
+- Created a hardware test device to simulate alert cases, driven by **node.js** tests sequencing and running on a **Arduino UNO R4 WiFi**.
 - Proof on concept of a Yocto based autonomous robot for indoor localization algorithm validation.
   [tags: test-automation, hardware-test-bench, nodejs, raspberry-pi, arduino, yocto, backend-integration]
 
@@ -48,15 +48,15 @@ On each project ie one product applicative, the embedded software team represent
 ## Achievements / Work
 
 ### Embedded Development
-- Developed firmware in C for a HomeKit-compatible smart door lock using BLE and NFC on an nrf52 (ARM Cortex-M4), taking the product from proof of concept to mass production. The build was handled by plain Make.
-- Designed and implemented a low-power NFC tag detection algorithm.
+- Developed firmware in **C** for a HomeKit-compatible smart door lock using **BLE** and **NFC** on an **nrf52** (ARM Cortex-M4) with **FreeRTOS**, taking the product from proof of concept to mass production. The build was handled by plain **Make**.
+- Designed and implemented a low-power **NFC** tag detection algorithm.
 - Designed and implemented a robust real-time DC motor calibration and control algorithm.
-- Developed C/C++ Software for an Ambarella/Buildroot-based indoor camera.
+- Developed **C/C++** Software for an **Ambarella**/**Buildroot**-based indoor camera.
   [tags: c, embedded-software, ble, nfc, homekit, real-time, low-power]
 
 ### Cybersecurity
-- Specified a bootloader with firmware integrity check with ciphered and authenticated application update mechanism based on ED25519, Poly1305-Chacha20 and HMAC-SHA256 algorithms. This bootloader also had a swap mechanism preventing the product to brick with a malicious firmware update.
-- Designed and implemented cryptographic keys storage with a SAM Av2, which is a Common Criteria certified secure element, along with the factory key provisioning process.
+- Specified a bootloader with firmware integrity check with ciphered and authenticated application update mechanism based on **ED25519**, **Poly1305-Chacha20** and **HMAC-SHA256** algorithms. This bootloader also had a swap mechanism preventing the product to brick with a malicious firmware update.
+- Designed and implemented cryptographic keys storage with a **SAM Av2**, which is a **Common Criteria** certified secure element, along with the factory key provisioning process.
 - Designed and implemented a hardware based security to prevent an unauthenticated user to perform action on the product: actuation components are disabled until a succesful authentication is done, this prevent a malicious actor to unlock the smart door lock.
 - Designed and implemented a physical authentication mechanism to lock certain product administration feature, for example to manage the smart door lock keys.
 - Supervised penetration testing campaigns, including one performed by a third-party company.
@@ -67,13 +67,13 @@ On each project ie one product applicative, the embedded software team represent
   [tags: system-architecture, embedded-system, iot, firmware-update, backend-integration]
 
 ### Validation, Testing and Industrialization
-- Developped a test suite with PyQt to validate product reliability in the long term: endurance testing, mechanical aging and recalibration handling.
-- Wrote factory scripts in Python to handle the smart door lock product initial configuration to be used by the factory in China, including the secure key provisioning.
+- Developped a test suite with **PyQt** to validate product reliability in the long term: endurance testing, mechanical aging and recalibration handling.
+- Wrote factory scripts in **Python** to handle the smart door lock product initial configuration to be used by the factory in China, including the secure key provisioning.
 - Carried multiple certification processes:
   - Ran all the tests required for the Apple-Homekit certification.
-  - Developped specific firmwares for the CE certification concerning BLE and NFC.
+  - Developped specific firmwares for the CE certification concerning **BLE** and **NFC**.
   - Taken into account RED certification requirements for hardware validation.
-- Conducted hardware validation on an Ambarella/Buildroot-based indoor camera: the goal was to validate the usage of a new higher resolution image sensor, and check if the current CPU would handle the extra computation needed.
+- Conducted hardware validation on an **Ambarella**/**Buildroot**-based indoor camera: the goal was to validate the usage of a new higher resolution image sensor, and check if the current CPU would handle the extra computation needed.
 - Tailored and fine-tuned an indoor camera Echo-cancellation algorithm to new mechanical constraints, with the support of the CODEC supplier AKM.
   [tags: test-automation, ci-cd, hardware-validation, endurance-testing, hardware-test-bench, python, certification, buildroot, linux]
 
@@ -96,8 +96,8 @@ The Technical Department Software team was initially constituted by 4 software e
 ## Achievements / Work
 
 ### Software Architecture
-- Designed a generic UML-based software architecture for IoT actuators thanks to the Rhapsody tool, with a focus on protocol abstraction and interoperability while taking into account protocols such as Zigbee, Thread, and Somfy proprietary protocols io-homecontrol and RTS. Hiogh-level requirements were summarized in Reqtify.
-- Handled specific code generation in C/C++ and compiled with IAR to integrate this architecture into a solar-powered roller shutter system.
+- Designed a generic UML-based software architecture for IoT actuators thanks to the **Rhapsody** tool, with a focus on protocol abstraction and interoperability while taking into account protocols such as Zigbee, Thread, and Somfy proprietary protocols io-homecontrol and RTS. Hiogh-level requirements were summarized in Reqtify.
+- Handled specific code generation in **C/C++** and compiled with **IAR** to integrate this architecture into a solar-powered roller shutter system.
   [tags: system-architecture, uml, embedded-software, iot, low-power]
 
 ### IoT & Standards
@@ -105,13 +105,13 @@ The Technical Department Software team was initially constituted by 4 software e
   [tags: iot, zigbee, interoperability]
 
 ### Test Automation & CI-CD
-- Implemented Jenkins-based automated unit and integration testing with strict coverage requirements using Gcov.
-- Ran automated Static-Analysis (LDRA, CodeSonar) on different projects, adding new tools support including for example CppCheck.
-- Developed automated physical test benches using Gherkins as high-level tests description and implemented in Python/Lua.
+- Implemented **Jenkins**-based automated unit and integration testing with strict coverage requirements using **Gcov**.
+- Ran automated Static-Analysis (LDRA, CodeSonar) on different projects, adding new tools support including for example **CppCheck**.
+- Developed automated physical test benches using **Gherkins** as high-level tests description and implemented in **Python**/**Lua**.
   [tags: jenkins, gcov, python, hardware-test-bench, test-automation, ci-cd, static-analysis]
 
 ### Process Application
-- Participated in the transition from waterfall to Agile (Scrum/Kanban)
+- Participated in the transition from waterfall to **Agile** (**Scrum**/**Kanban**)
 - Contributed to several newcomers groups training about Testing/Coding rules and good practices.
 - Contributed to multiple Buisiness Units projects code and design formal reviews.
   [tags: agile, scrum, process, kanban]
@@ -134,9 +134,9 @@ Consulting role within Somfy Technical Department, focused on low-level embedded
 ## Achievements / Work
 
 ### Embedded Development
-- Developed critical software components in C on STM32 and EFM32 platforms: RTOS abstraction layers, motor control, and flash memory management, with IAR IDE and Compiler.
-- Created a benchmark software for new MCU qualification, using µcos-II as RTOS, which serves as a template for application development.
-- Managed Software requirements with Reqtify, based on the different buisiness units needs, and proposed software design in UML under Rhapsody.
+- Developed critical software components in **C** on **STM32** and **EFM32** platforms: RTOS abstraction layers, motor control, and flash memory management, with IAR IDE and Compiler.
+- Created a benchmark software for new MCU qualification, using **µcos-II** as RTOS, which serves as a template for application development.
+- Managed Software requirements with **Reqtify**, based on the different buisiness units needs, and proposed software design in **UML** under Rhapsody.
   [tags: c, embedded-software, stm32, efm32, rtos, motor-control]
 
 ### Product Integration
@@ -144,9 +144,9 @@ Consulting role within Somfy Technical Department, focused on low-level embedded
   [tags: embedded-software, integration, iot, protocol-stack]
 
 ### Test Automation & CI-CD
-- Performed 100% codeline coverage with automated Unitary tests, scheduled with Jenkins on Code::Blocks and using Gcov for code coverage measurments.
+- Performed 100% codeline coverage with automated Unitary tests, scheduled with Jenkins on **Code::Blocks** and using **Gcov** for code coverage measurments.
 - Developped Hardware-in-the-loop integration and high-level functionnal tests.
-- Ran Static-Analysis tool on every project: LDRA, CodeSonar.
+- Ran Static-Analysis tool on every project: **LDRA**, **CodeSonar**.
   [tags: static-analysis, ci-cd, test-automation]
 
 ### Coordination
@@ -169,10 +169,10 @@ Consulting role within Somfy Technical Department, focused on low-level embedded
 ## Achievements / Work
 
 ### Embedded Development
-- Developed HDMI/SDI interfaces on a Xilinx Kintex-7 FPGA in VHDL and Verilog, using the least amount of resource. Few solutions were proposed, varying on specific resources: LUT, PLL, Transceiver, ... Two IDEs were used for synthesis: Vivado Design Suite and Xilinx Platform Studio.
+- Developed **HDMI**/**SDI** interfaces on a **Xilinx Kintex-7** FPGA in **VHDL** and **Verilog**, using the least amount of resource. Few solutions were proposed, varying on specific resources: LUT, PLL, Transceiver, ... Two IDEs were used for synthesis: Vivado Design Suite and Xilinx Platform Studio.
 - Wrote corresponding drivers in C on a Microblaze softcore processor.
-- Integrated the solution into a Zynq-7000 platform running embedded Linux.
-- Creation of an I²C EDID memory emulation as certain video sources require valid EDID to send a signal.
+- Integrated the solution into a **Zynq-7000** platform running embedded Linux.
+- Creation of an **I²C** EDID memory emulation as certain video sources require valid EDID to send a signal.
   [tags: fpga, xilinx, microblaze, zynq, embedded-system, embedded-software, embedded-linux, video, drivers]
 
 
@@ -185,9 +185,9 @@ Consulting role within Somfy Technical Department, focused on low-level embedded
 Engineering project at Esisar in a team of 3 students,supervised by Thales Avionics, for signal processing acceleration in satellite positioning systems.
 
 ## Achievements / Work
-- Studied and improved a complex mathematical algorithm on an System-On-Chip Zynq-7000 platform. A Step of the GNSS positioning algorithm involves a matrix inversion which can lead to latency and high power-consumption when exclusively performed on a single core CPU.
-- Benchmarked ARM Cortex-A9 NEON SIMD hardware acceleration component with CPU implementation C.
-- Designed and implemented a FPGA based custom hardware computation acceleration component in VHDL. Vivado Design Suite IDE was used for synthesis.
+- Studied and improved a complex mathematical algorithm on an System-On-Chip **Zynq-7000** platform. A Step of the GNSS positioning algorithm involves a matrix inversion which can lead to latency and high power-consumption when exclusively performed on a single core CPU.
+- Benchmarked ARM Cortex-A9 NEON SIMD hardware acceleration component with CPU implementation **C**.
+- Designed and implemented a FPGA based custom hardware computation acceleration component in **VHDL**. **Vivado Design Suite** IDE was used for synthesis.
   [tags: fpga, xilinx, zynq, embedded-system, embedded-software, signal-processing, hardware-acceleration]
 
 
@@ -209,19 +209,19 @@ Pre-egineering school intership in a team of Electrical Technician on an avionic
 
 # Personnal Projects
 ### Google Calendar Powered Clock Alarm
-- Python Google API and Raspberry Pi Zero based Alarm clock that syncs with an online schedule to wake the user.
+- **Python** Google API and **Raspberry Pi Zero** based Alarm clock that syncs with an online schedule to wake the user.
 
 ### Electronic Drum Set
-- Teensyduino based USB MIDI Device with capacitive and piezoelectric sensors.
+- Teensyduino based **USB MIDI** Device with capacitive and piezoelectric sensors.
 
 ### Real-time Audio Processing Platform
 - Teensyduino with SGTL5000 CODEC to perform zero latency audio processing.
 
 ### Remote Controller Rover with real-time camera monitoring
-- Raspberry Pi Zero W with Sphero RVR robot base and camera sensor.
+- **Raspberry Pi Zero W* with Sphero RVR robot base and camera sensor.
 
 ### Audio Sanity Check Software
-- TensorFlow Python based Software to detect abnormal noise in recordings.
+- **TensorFlow** **Python** based Software to detect abnormal noise in recordings.
 
 
 ---
