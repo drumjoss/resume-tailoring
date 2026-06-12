@@ -44,10 +44,20 @@
     <h1>🚀 AI Career Log Tailorer</h1>
     
     <div class="card">
+        <!-- Row 1: API Configuration -->
         <label for="apiKey">Gemini API Key</label>
         <input type="password" id="apiKey" placeholder="AIzkSy...">
 
+        <!-- Row 2: Contact Information Input Fields -->
+        <label style="margin-top: 10px;">Contact Information (Injected at the top of your resume)</label>
         <div class="row">
+            <div class="col"><input type="text" id="contactName" placeholder="Michel Devio"></div>
+            <div class="col"><input type="text" id="contactPhone" placeholder="06 09 14 22 35"></div>
+            <div class="col"><input type="text" id="contactEmail" placeholder="michel.devio@notadomain.fr"></div>
+        </div>
+
+        <!-- Row 3: Repository File Selections -->
+        <div class="row" style="margin-top: 15px;">
             <div class="col">
                 <label for="logSelect">Select Career Log</label>
                 <select id="logSelect"><option>Loading logs...</option></select>
@@ -58,16 +68,20 @@
             </div>
         </div>
 
+        <!-- Row 4: AI Behavior Prompt Configurations -->
+        <label for="systemPrompt">AI System Instructions (Modify rules here)</label>
+        <textarea id="systemPrompt" style="height: 120px;"></textarea>
+
+        <!-- Row 5: Job Constraints Context Box -->
         <label for="jobDescription">Target Job Description</label>
-        <textarea id="jobDescription" placeholder="Paste the job details here..."></textarea>
+        <textarea id="jobDescription" placeholder="Paste the responsibilities, requirements, or full description of the job here..."></textarea>
         
         <button id="generateBtn" onclick="processPipeline()">Generate & Preview HTML</button>
         <div id="statusMsg" class="status"></div>
+        <button id="viewBtn" style="display:none; background: #10b981; margin-top: 10px;">👉 Open Tailored Resume</button>
     </div>
 
     <script>
-        // !!! CONFIGURATION !!!
-        // Replace these with your actual GitHub username and repository name
         const GITHUB_USER = "drumjoss";
         const GITHUB_REPO = "resume-tailoring";
 
@@ -75,30 +89,40 @@
         let selectedLogContent = "";
         let selectedCssContent = "";
 
+        // Keep track of the temporary URL globally
+        let currentBlobURL = null;
+        
+       // Your default system instructions template
+        const defaultSystemPrompt = `You are an expert technical resume parser and editor. Your goal is to generate a highly tailored, professional resume based on the Master Career Log and the provided target Job Description.
+
+STRICT INSTRUCTIONS:
+1. TRUTHFULNESS: Do not fabricate or invent skills, metrics, roles, dates, or experiences. Only use information present in the Master Career Log.
+2. RELEVANCE FILTERING: Completely omit roles, projects, or bullet points from the log that share zero overlap with the job requirements. Keep the contact info block intact at the top.
+3. KEYWORD MATCHING: Subtly adapt the phrasing of relevant bullet points to match the terminology, tools, or frameworks requested in the job description without changing the underlying truth of what was accomplished.
+4. FORMAT: Output your response ONLY as clean, structured Markdown. Do not include conversational introduction/conclusion or markdown wrapping tags like \`\`\`markdown.`;
+
         window.onload = function() {
-            // Load API Key from local storage if available
+            // Populate defaults
+            document.getElementById('systemPrompt').value = defaultSystemPrompt;
+
             if (localStorage.getItem('gemini_api_key')) {
                 document.getElementById('apiKey').value = localStorage.getItem('gemini_api_key');
             }
-            // Fetch repository files setup
             fetchRepoFiles('career_log', 'logSelect');
             fetchRepoFiles('css', 'cssSelect');
         };
 
-        // Reads directory paths inside your GitHub Repo dynamically
         async function fetchRepoFiles(path, selectId) {
             const selectEl = document.getElementById(selectId);
             try {
                 const response = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${path}`);
                 if (!response.ok) throw new Error("Could not fetch structure");
-                
                 const files = await response.json();
-                selectEl.innerHTML = ""; // clear loading
-                
+                selectEl.innerHTML = "";
                 files.forEach(file => {
                     if(file.type === 'file') {
                         const option = document.createElement('option');
-                        option.value = file.download_url; // Direct link to raw content
+                        option.value = file.download_url;
                         option.textContent = file.name;
                         selectEl.appendChild(option);
                     }
@@ -111,9 +135,18 @@
         async function processPipeline() {
             const apiKey = document.getElementById('apiKey').value.trim();
             const jobDescription = document.getElementById('jobDescription').value.trim();
+            const customSystemPrompt = document.getElementById('systemPrompt').value.trim();
             const logUrl = document.getElementById('logSelect').value;
             const cssUrl = document.getElementById('cssSelect').value;
+            
+            // Collect metadata contact values
+            const name = document.getElementById('contactName').value.trim() || "Michel Devio";
+            const phone = document.getElementById('contactPhone').value.trim() || "06 09 14 22 35";
+            const email = document.getElementById('contactEmail').value.trim() || "michel.devio@notadomain.fr";
+
             const statusMsg = document.getElementById('statusMsg');
+            const viewBtn = document.getElementById('viewBtn');
+            const generateBtn = document.getElementById('generateBtn');
 
             if (!apiKey || !jobDescription || !logUrl || !cssUrl) {
                 alert("Please ensure API key, job description, and file selections are ready.");
@@ -121,70 +154,76 @@
             }
 
             localStorage.setItem('gemini_api_key', apiKey);
-            statusMsg.innerText = "Step 1: Fetching selected career log and CSS from GitHub...";
+            viewBtn.style.display = "none";
+            generateBtn.disabled = true;
+            statusMsg.innerText = "Step 1: Fetching target career log context details...";
 
             try {
-                // Fetch the files directly from GitHub's raw storage
                 const logRes = await fetch(logUrl);
                 selectedLogContent = await logRes.text();
                 
                 const cssRes = await fetch(cssUrl);
                 selectedCssContent = await cssRes.text();
 
-                statusMsg.innerText = "Step 2: Sending data to Gemini AI for filtering...";
+                statusMsg.innerText = "Step 2: Activating Gemini AI pipeline compilation...";
 
-                // System Instructions
-                const systemPrompt = `You are a professional resume writer. Tailor the Master Career Log to target the Job Description. Keep contact updates. Omit completely irrelevant items. Do not lie or invent data. Return ONLY valid Markdown syntax. No code fences.`;
+                // Synthesize the injected contact header chunk string
+                const contactHeaderMarkdown = `# ${name}\n📱 ${phone} | ✉️ ${email}\n\n---\n\n`;
 
-                // Run AI
-                const aiResponse = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
-                        contents: [{ parts: [{ text: `${systemPrompt}\n\n### MASTER LOG:\n${selectedLogContent}\n\n### JOB DESCRIPTION:\n${jobDescription}` }] }]
+                        contents: [{ 
+                            parts: [{ 
+                                text: `${customSystemPrompt}\n\n### CONTACT HEADER (Always place this at the very top of your document output):\n${contactHeaderMarkdown}\n\n### MASTER LOG DOCUMENT:\n${selectedLogContent}\n\n### TARGET JOB REQUIREMENTS:\n${jobDescription}` 
+                            }] 
+                        }]
                     })
                 });
 
-                if (!aiResponse.ok) throw new Error("AI Processing Failed");
-                const aiData = await aiResponse.json();
+                if (!response.ok) throw new Error("AI Engine request dropped unexpectedly");
+                const aiData = await response.json();
                 let tailoredMarkdown = aiData.candidates[0].content.parts[0].text;
-                tailoredMarkdown = tailoredMarkdown.replace(/^```markdown\n/, "").replace(/```$/, "");
+                // Removes ```markdown, ```md, or plain ``` from the start, and any ``` from the end (ignoring extra spaces/newlines)
+                tailoredMarkdown = tailoredMarkdown.trim().replace(/^```(markdown|md)?\s*/i, "").replace(/```$/, "").trim();
 
-                statusMsg.innerText = "Step 3: Compiling Markdown + CSS into localized Page...";
-
-                // Convert MD string to HTML string using Marked library
+                statusMsg.innerText = "Step 3: Translating processed Markdown into HTML file streams...";
                 const htmlBodyContent = marked.parse(tailoredMarkdown);
 
-                // Build a standalone HTML document wrapping your selected CSS layout
                 const completeHtmlPage = `
                     <!DOCTYPE html>
                     <html>
                     <head>
                         <meta charset="utf-8">
-                        <title>Tailored Resume Preview</title>
-                        <style>
-                            /* Injects your repository css directly */
-                            ${selectedCssContent}
-                        </style>
+                        <title>Tailored Resume Preview - ${name}</title>
+                        <style>${selectedCssContent}</style>
                     </head>
                     <body>
-                        <div class="resume-container">
-                            ${htmlBodyContent}
-                        </div>
+                        <div class="resume-container">${htmlBodyContent}</div>
                     </body>
                     </html>
                 `;
 
-                // Create a temporary data URL blob and tell the browser to open it in a blank tab
+                if (currentBlobURL) {
+                    URL.revokeObjectURL(currentBlobURL);
+                }
+
                 const blob = new Blob([completeHtmlPage], { type: 'text/html' });
-                const blobURL = URL.createObjectURL(blob);
+                currentBlobURL = URL.createObjectURL(blob);
                 
-                statusMsg.innerText = "Done! Opening preview tab...";
-                window.open(blobURL, '_blank');
+                viewBtn.onclick = function() {
+                    window.open(currentBlobURL, '_blank');
+                };
+                
+                statusMsg.innerText = "Done! Click the button below to view your tailored resume.";
+                viewBtn.style.display = "inline-block";
 
             } catch (error) {
                 console.error(error);
-                statusMsg.innerText = "An error occurred in the pipeline.";
+                statusMsg.innerText = "Pipeline processing broke down.";
+            } finally {
+                generateBtn.disabled = false;
             }
         }
     </script>
