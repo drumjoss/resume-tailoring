@@ -25,7 +25,7 @@ Freelance activity focused on embedded systems development and system architectu
 - Created integration tests to simulate back-end operations in **node.js**, with the emulated back-end running on a **Raspberry Pi 3**/**Zero W**.
 - Ubuntu 24 and Windows 11 VM Creation and management to configure and use the product.
 - Created a hardware test device to simulate alert cases, driven by **node.js** tests sequencing and running on a **Arduino UNO R4 WiFi**, and on a **Raspberry Pi Zero W** with **Python** **Flask**.
-- Proof on concept of a Yocto based autonomous robot for indoor localization algorithm validation.
+- Proof of concept of a Yocto based autonomous robot for indoor localization algorithm validation.
   [tags: test-automation, hardware-test-bench, nodejs, raspberry-pi, arduino, yocto, backend-integration]
 
 
@@ -171,7 +171,7 @@ Consulting role within Somfy Technical Department, focused on low-level embedded
 ### Embedded Development
 - Developed **HDMI**/**SDI** interfaces on a **Xilinx Kintex-7** FPGA in **VHDL** and **Verilog**, using the least amount of resource. Few solutions were proposed, varying on specific resources: LUT, PLL, Transceiver, ... Two IDEs were used for synthesis: Vivado Design Suite and Xilinx Platform Studio.
 - Wrote corresponding drivers in C on a Microblaze softcore processor.
-- Integrated the solution into a **Zynq-7000** platform running embedded Linux.
+- Integrated the solution into an embedded Linux **Zynq-7000** platform.
 - Creation of an **I²C** EDID memory emulation as certain video sources require valid EDID to send a signal.
   [tags: fpga, xilinx, microblaze, zynq, embedded-system, embedded-software, embedded-linux, video, drivers]
 
@@ -218,7 +218,7 @@ Pre-egineering school intership in a team of Electrical Technician on an avionic
 - Teensyduino with SGTL5000 CODEC to perform zero latency audio processing.
 
 ### Remote Controller Rover with real-time camera monitoring
-- **Raspberry Pi Zero W* with Sphero RVR robot base and camera sensor.
+- **Raspberry Pi Zero W** with Sphero RVR robot base and camera sensor.
 
 ### Audio Sanity Check Software
 - **TensorFlow** **Python** based Software to detect abnormal noise in recordings.
