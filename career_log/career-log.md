@@ -24,7 +24,7 @@ Freelance activity focused on embedded systems development and system architectu
 ### Validation, Testing and Industrialization
 - Created integration tests to simulate back-end operations in **node.js**, with the emulated back-end running on a **Raspberry Pi 3**/**Zero W**.
 - Ubuntu 24 and Windows 11 VM Creation and management to configure and use the product.
-- Created a hardware test device to simulate alert cases, driven by **node.js** tests sequencing and running on a **Arduino UNO R4 WiFi**.
+- Created a hardware test device to simulate alert cases, driven by **node.js** tests sequencing and running on a **Arduino UNO R4 WiFi**, and on a **Raspberry Pi Zero W** with **Python** **Flask**.
 - Proof on concept of a Yocto based autonomous robot for indoor localization algorithm validation.
   [tags: test-automation, hardware-test-bench, nodejs, raspberry-pi, arduino, yocto, backend-integration]
 
@@ -222,6 +222,9 @@ Pre-egineering school intership in a team of Electrical Technician on an avionic
 
 ### Audio Sanity Check Software
 - **TensorFlow** **Python** based Software to detect abnormal noise in recordings.
+
+### Timelapse Server
+- **Python** **Flask** based Timelapse server for **Raspberry Pi Zero** with a camera.
 
 
 ---
