@@ -1,5 +1,29 @@
-# EXP-007 — Kal Engineering Studio — Freelance Embedded Engineer
-**2024 – Present**
+# EXP-008 — Agixis (For Tiama) — Software Technical Leader
+**2026 – Present**
+
+## Context
+Software Technical Leader in the Real-time and Image Processing department.
+
+## Responsibilities
+- Design and implementation of embedded software application in C/C++.
+- Integrate developed solutions into complex industrial machines.
+
+## Achievements / Work
+
+### Embedded Development
+- C/C++ Software application for a next generation glass quality control machine based on a x86 machine and a Zynq Cortex-A SoC Platform, running Windows and VxWorks with OPC.
+  [tags: c/c++, embedded-software, vxworks, zynq, image-processing]
+
+### Validation, Testing and Industrialization
+- Automated tests with emulation on Windows platform with camera mock images supplied by FTP.
+- Integration on a complex industrial machine with PLC devices.
+  [tags: ci-cd]
+
+
+---
+
+# EXP-007 — Kal Engineering Studio (For Axians RMP) — Freelance Embedded Engineer
+**2024 – 2026**
 
 ## Context
 Freelance activity focused on embedded systems development and system architecture for industrial and connected devices. My interventions cover both firmware development, high-level and hardware/software system design.
@@ -12,21 +36,22 @@ Freelance activity focused on embedded systems development and system architectu
 ## Achievements / Work
 
 ### Embedded Development
-- Ported a **C** embedded software application for a handheld radio-based indoor localisation system adding new features, for instance firmware update and robustified lone worker safety mechanism. Initial target was an AT32 (AVR32), and the new one a SAM4S (ARM Cortex-M4), causing endianess issues.
-- Refactored a full project to streamline product line maintenance and update costs, including porting to a **CMake** compatible toolchain and **FreeRTOS**.
+- Ported a **C/C++** embedded software application for a handheld radio-based indoor localization system adding new features such as firmware update and robustified lone worker safety mechanism. Initial target was an AT32 (AVR32), and the new one a SAM4S (ARM Cortex-M4), causing endianness issues.
+- Refactored a full project to streamline product line maintenance and update costs, including porting to a **CMake** compatible toolchain and **FreeRTOS** for **CI/CD** integration.
 - Designed and implemented a portable lone worker alert mechanism based on accelerometer and gyroscope data.
-  [tags: c, embedded-software, indoor-localization, firmware-update, cmake, sensors, imu]
+- Developed an **embedded Linux Yocto** based autonomous driving robot for indoor localization algorithm validation, with Camera live streaming.
+- Built toolchain for **embedded Linux** configurable distributions using **Yocto** and **Buildroot** with mender secure update mechanism.
+  [tags: c/c++, embedded-software, embedded-linux, raspberry-pi, yocto, buildroot, free-rtos, ci-cd, indoor-localization, firmware-update, cmake, sensors, imu]
 
 ### System Architecture
-- Defined the hardware/software architecture for robust operation and product evolution future-proofing.
+- Defined the hardware/software architecture for robust operation and future-proof product evolution.
   [tags: system-architecture, embedded-system, real-time, safety-critical]
 
 ### Validation, Testing and Industrialization
-- Created integration tests to simulate back-end operations in **node.js**, with the emulated back-end running on a **Raspberry Pi 3**/**Zero W**.
+- Created automated integration tests to simulate back-end operations in **node.js**, with the emulated back-end running on a **Raspberry Pi 3**/**Zero W**.
 - Ubuntu 24 and Windows 11 VM Creation and management to configure and use the product.
-- Created a hardware test device to simulate alert cases, driven by **node.js** tests sequencing and running on a **Arduino UNO R4 WiFi**, and on a **Raspberry Pi Zero W** with **Python** **Flask**.
-- Proof of concept of a Yocto based autonomous robot for indoor localization algorithm validation.
-  [tags: test-automation, hardware-test-bench, nodejs, raspberry-pi, arduino, yocto, backend-integration]
+- Created mechanical hardware test devices to simulate alert cases, driven by **node.js** tests sequencing and running on a bare-metal **Arduino UNO R4 WiFi**, and on an **embedded Linux** **Raspberry Pi Zero W** with **Python** **Flask**.
+  [tags: test-automation, hardware-test-bench, nodejs, raspberry-pi, embedded-linux, arduino, backend-integration]
 
 
 ---
@@ -35,8 +60,8 @@ Freelance activity focused on embedded systems development and system architectu
 **2018 – 2024**
 
 ## Context
-I was part of the Embedded Software Engineer team, composed by 25 engineers, grouped by product lines and technological stacks.
-On each project ie one product applicative, the embedded software team represented 1 to 3 people on average.
+I was part of the Embedded Software Engineer team, composed of 25 engineers, grouped by product lines and technological stacks.
+On each project i.e one product application, the embedded software team represented 1 to 3 people on average.
 
 ## Responsibilities
 - Embedded software development from prototype to industrialization.
@@ -52,7 +77,7 @@ On each project ie one product applicative, the embedded software team represent
 - Designed and implemented a low-power **NFC** tag detection algorithm.
 - Designed and implemented a robust real-time DC motor calibration and control algorithm.
 - Developed **C/C++** Software for an **Ambarella**/**Buildroot**-based indoor camera.
-  [tags: c, embedded-software, ble, nfc, homekit, real-time, low-power]
+  [tags: c, embedded-software, embedded-linux, buildroot, ble, nfc, homekit, real-time, low-power]
 
 ### Cybersecurity
 - Specified a bootloader with firmware integrity check with ciphered and authenticated application update mechanism based on **ED25519**, **Poly1305-Chacha20** and **HMAC-SHA256** algorithms. This bootloader also had a swap mechanism preventing the product to brick with a malicious firmware update.
@@ -73,8 +98,8 @@ On each project ie one product applicative, the embedded software team represent
   - Ran all the tests required for the Apple-Homekit certification.
   - Developped specific firmwares for the CE certification concerning **BLE** and **NFC**.
   - Taken into account RED certification requirements for hardware validation.
-- Conducted hardware validation on an **Ambarella**/**Buildroot**-based indoor camera: the goal was to validate the usage of a new higher resolution image sensor, and check if the current CPU would handle the extra computation needed.
-- Tailored and fine-tuned an indoor camera Echo-cancellation algorithm to new mechanical constraints, with the support of the CODEC supplier AKM.
+- Conducted hardware validation on an **Embedded Linux** **Ambarella**/**Buildroot**-based indoor camera: the goal was to validate a higher-resolution image sensor, and check if the current CPU would handle the extra computation needed.
+- Tailored and fine-tuned an indoor camera Echo-cancellation algorithm to new mechanical constraints, with support from CODEC supplier AKM.
   [tags: test-automation, ci-cd, hardware-validation, endurance-testing, hardware-test-bench, python, certification, buildroot, linux]
 
 
@@ -84,21 +109,24 @@ On each project ie one product applicative, the embedded software team represent
 **2016 – 2018**
 
 ## Context
-I was working in Somfy Technical Departement, a newly created entity whose goal was to enable new technologies, tools and processes for the different Somfy Buisiness Units.
-The Technical Department Software team was initially constituted by 4 software engineers, but could reach up to 10 engineers for big architecture phase, spread over 3 R&D centers including 2 in France and 1 in Poland.
+I was working in Somfy Technical Departement, a newly created entity whose goal was to enable new technologies, tools and processes for the different Somfy Business Units.
+The Technical Department Software team was initially constituted by 4 software engineers, but could reach up to 10 engineers for big architecture phase, spread across 3 R&D centers including 2 in France and 1 in Poland.
 
 ## Responsibilities
-- Provide Somfy Buisiness Units with reusable software architecture and modules.
-- Ensure the application of Software development processes and rules across all the Buisiness Units.
+- Provide Somfy Business Units with reusable software architecture and modules.
+- Ensure the application of Software development processes and rules across all the Business Units.
 - Support software processes evolutions with new tools and test philosophy.
 - Training and supporting of the newcomers.
 
 ## Achievements / Work
 
 ### Software Architecture
-- Designed a generic UML-based software architecture for IoT actuators thanks to the **Rhapsody** tool, with a focus on protocol abstraction and interoperability while taking into account protocols such as Zigbee, Thread, and Somfy proprietary protocols io-homecontrol and RTS. Hiogh-level requirements were summarized in Reqtify.
-- Handled specific code generation in **C/C++** and compiled with **IAR** to integrate this architecture into a solar-powered roller shutter system.
-  [tags: system-architecture, uml, embedded-software, iot, low-power]
+- Designed a generic UML-based software architecture for IoT actuators thanks to the **Rhapsody** tool, with a focus on protocol abstraction and interoperability while taking into account protocols such as Zigbee, Thread, and Somfy proprietary protocols io-homecontrol and RTS. High-level requirements were summarized in Reqtify.
+  [tags: system-architecture, uml]
+
+### Embedded Development
+- Handled products specific code generation and implementation in **C/C++** with **FreeRTOS** and compiled with **IAR** to integrate this architecture into a solar-powered roller shutter system.
+  [tags: c/c++, embedded-software, free-rtos, low-power]
 
 ### IoT & Standards
 - Contributed to interoperability efforts, including work with the Zigbee Alliance to contribute to the ZigBee Cluster Library specification.
@@ -113,7 +141,7 @@ The Technical Department Software team was initially constituted by 4 software e
 ### Process Application
 - Participated in the transition from waterfall to **Agile** (**Scrum**/**Kanban**)
 - Contributed to several newcomers groups training about Testing/Coding rules and good practices.
-- Contributed to multiple Buisiness Units projects code and design formal reviews.
+- Contributed to multiple Business Units projects code and design formal reviews.
   [tags: agile, scrum, process, kanban]
 
 
@@ -135,17 +163,17 @@ Consulting role within Somfy Technical Department, focused on low-level embedded
 
 ### Embedded Development
 - Developed critical software components in **C** on **STM32** and **EFM32** platforms: RTOS abstraction layers, motor control, and flash memory management, with IAR IDE and Compiler.
-- Created a benchmark software for new MCU qualification, using **µcos-II** as RTOS, which serves as a template for application development.
-- Managed Software requirements with **Reqtify**, based on the different buisiness units needs, and proposed software design in **UML** under Rhapsody.
-  [tags: c, embedded-software, stm32, efm32, rtos, motor-control]
+- Created a benchmark software for new MCU qualification, using **µcos-II** and **FreeRTOS** as RTOS, which serves as a template for application development.
+- Managed Software requirements with **Reqtify**, based on the different business units needs, and proposed software design in **UML** under Rhapsody.
+  [tags: c/c++, embedded-software, stm32, efm32, free-rtos, motor-control]
 
 ### Product Integration
-- Delivered technical support for the software components integration in more than 15 products including actuators, remote controls, and sensors. It was also integrated in the proprietary io-homecontrol stack, sold to Somfy buisiness partners for their own products.
+- Delivered technical support for the software components integration in more than 15 products including actuators, remote controls, and sensors. It was also integrated in the proprietary io-homecontrol stack, sold to Somfy business partners for their own products.
   [tags: embedded-software, integration, iot, protocol-stack]
 
 ### Test Automation & CI-CD
-- Performed 100% codeline coverage with automated Unitary tests, scheduled with Jenkins on **Code::Blocks** and using **Gcov** for code coverage measurments.
-- Developped Hardware-in-the-loop integration and high-level functionnal tests.
+- Performed 100% codeline coverage with automated Unitary tests, scheduled with Jenkins on **Code::Blocks** and using **Gcov** for code coverage measurements.
+- Developed Hardware-in-the-loop integration and high-level functionnal tests.
 - Ran Static-Analysis tool on every project: **LDRA**, **CodeSonar**.
   [tags: static-analysis, ci-cd, test-automation]
 
@@ -160,20 +188,20 @@ Consulting role within Somfy Technical Department, focused on low-level embedded
 **2015 (5 months)**
 
 ## Context
-5 months End-of-study internship within the FPGA team of Adetel focused on FPGA-based video systems and embedded Linux integration.
+5 months End-of-study internship within the FPGA team of Adetel focused on FPGA-based video systems and **embedded Linux** integration.
 
 ## Responsibilities
 - Development of FPGA video interfaces and associated firmware.
-- Integration into embedded Linux systems.
+- Integration into **embedded Linux** systems.
 
 ## Achievements / Work
 
 ### Embedded Development
 - Developed **HDMI**/**SDI** interfaces on a **Xilinx Kintex-7** FPGA in **VHDL** and **Verilog**, using the least amount of resource. Few solutions were proposed, varying on specific resources: LUT, PLL, Transceiver, ... Two IDEs were used for synthesis: Vivado Design Suite and Xilinx Platform Studio.
 - Wrote corresponding drivers in C on a Microblaze softcore processor.
-- Integrated the solution into an embedded Linux **Zynq-7000** platform.
+- Integrated the solution into an **embedded Linux** **Zynq-7000** platform with reduced boot time.
 - Creation of an **I²C** EDID memory emulation as certain video sources require valid EDID to send a signal.
-  [tags: fpga, xilinx, microblaze, zynq, embedded-system, embedded-software, embedded-linux, video, drivers]
+  [tags: c, fpga, xilinx, microblaze, zynq, embedded-system, embedded-software, embedded-linux, video, drivers]
 
 
 ---
@@ -209,7 +237,7 @@ Pre-egineering school intership in a team of Electrical Technician on an avionic
 
 # Personnal Projects
 ### Google Calendar Powered Clock Alarm
-- **Python** Google API and **Raspberry Pi Zero** based Alarm clock that syncs with an online schedule to wake the user.
+- **Python** Google API and **Raspberry Pi Zero** **embedded Linux** based Alarm clock that syncs with an online schedule to wake the user.
 
 ### Electronic Drum Set
 - Teensyduino based **USB MIDI** Device with capacitive and piezoelectric sensors.
@@ -218,7 +246,7 @@ Pre-egineering school intership in a team of Electrical Technician on an avionic
 - Teensyduino with SGTL5000 CODEC to perform zero latency audio processing.
 
 ### Remote Controller Rover with real-time camera monitoring
-- **Raspberry Pi Zero W** with Sphero RVR robot base and camera sensor.
+- **Embedded Linux** **Raspberry Pi Zero W** with Sphero RVR robot base and camera sensor.
 
 ### Audio Sanity Check Software
 - **TensorFlow** **Python** based Software to detect abnormal noise in recordings.
