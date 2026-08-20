@@ -51,7 +51,7 @@ Freelance activity focused on embedded systems development and system architectu
 - Created automated integration tests to simulate back-end operations in **node.js**, with the emulated back-end running on a **Raspberry Pi 3**/**Zero W**.
 - Ubuntu 24 and Windows 11 VM Creation and management to configure and use the product.
 - Created mechanical hardware test devices to simulate alert cases, driven by **node.js** tests sequencing and running on a bare-metal **Arduino UNO R4 WiFi**, and on an **embedded Linux** **Raspberry Pi Zero W** with **Python** **Flask**.
-  [tags: test-automation, hardware-test-bench, nodejs, raspberry-pi, embedded-linux, arduino, backend-integration]
+  [tags: test-automation, hardware-test-bench, nodejs, python, raspberry-pi, embedded-linux, arduino, backend-integration]
 
 
 ---
