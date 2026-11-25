@@ -12,7 +12,9 @@ Software Technical Leader in the Real-time and Image Processing department.
 
 ### Embedded Development
 - C/C++ Software application for a next generation glass quality control machine based on a x86 machine and a Zynq Cortex-A SoC Platform, running Windows and VxWorks with OPC.
-  [tags: c/c++, embedded-software, vxworks, zynq, image-processing]
+- C firmware development for an industrial tracking board with RS232 and Modbus interfaces.
+- C/C++ image-processing for 3D Scanner on Ubuntu RT. 
+  [tags: c/c++, embedded-software, Modbus, RS232, vxworks, zynq, image-processing]
 
 ### Validation, Testing and Industrialization
 - Automated tests with emulation on Windows platform with camera mock images supplied by FTP.
